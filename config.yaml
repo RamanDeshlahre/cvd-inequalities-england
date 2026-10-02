@@ -88,6 +88,10 @@ indicators:
     period_range: "1y"
     higher_is_worse: true
 
+# Extra indicators downloaded only for sensitivity checks (not used in the main analysis).
+sensitivity_indicators:
+  deprivation_imd2019: 93553
+
 # ---------------------------------------------------------------------
 # CVDPREVENT (care section). Downloaded manually - see docs/project_plan.md.
 # Save as data/raw/cvdprevent_by_deprivation.csv with these columns:
@@ -98,6 +102,7 @@ cvdprevent:
   quintile_1_is_most_deprived: true   # confirmed in exports ("1 - most deprived")
   # Detection measures (higher = worse) are charted separately from care measures.
   detection_codes: ["CVDP005HYP"]
+  max_age_months: 9                   # warn if latest CVDPREVENT period is older (publication lag is ~6 months)
   short_names:
     CVDP007HYP: "High blood pressure treated to target"
     CVDP003CHOL: "High risk (QRISK 20%+) on statins"
@@ -117,10 +122,12 @@ analysis:
 chart_titles:
   mortality_quintile: "Early heart and circulatory deaths are 1.8 times higher in the most deprived areas"
   funnel: "Four areas have early death rates well above England, even allowing for normal variation"
-  trend: "The gap in early heart deaths almost halved from 2001 to 2019, then stopped narrowing"
+  trend: "The gap in early heart deaths narrowed until about 2011, then stopped closing"
   undiagnosed_quintile: "Modelled undiagnosed high blood pressure is slightly lower in deprived areas"
   undiagnosed_vs_mortality: "More modelled undiagnosed high blood pressure does not mean more early deaths"
   smoking: "Smoking is 1.7 times more common in the most deprived areas"
   excess_weight: "Most adults carry excess weight everywhere, but more so in deprived areas"
   care: "Blood pressure control is lower in deprived groups, but statin use is higher"
   detection: "Unconfirmed high blood pressure readings are most common in the most deprived fifth"
+  sii_by_sex: "The gap is twice as wide for men in absolute terms, but similar in relative terms"
+  sii_segmented: "The gap narrowed quickly until about 2011, then stopped"

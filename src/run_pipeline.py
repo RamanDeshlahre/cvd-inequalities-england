@@ -26,11 +26,11 @@ def _key(cfg, role):
     return keys[0] if keys else None
 
 
-def main() -> None:
+def main(argv: list[str] | None = None) -> list:
     ap = argparse.ArgumentParser()
     ap.add_argument("--raw-dir")
     ap.add_argument("--out-dir")
-    args = ap.parse_args()
+    args = ap.parse_args(argv)
 
     cfg = load_config()
     T = cfg.get("chart_titles", {})
@@ -232,6 +232,7 @@ def main() -> None:
 
     _write_summary(summary, cfg, period_of, p, synthetic)
     log.info("Done. Figures: %s | Tables: %s", p["figures"], p["tables"])
+    return qa_results
 
 
 def _f(x, d=1):

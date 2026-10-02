@@ -12,7 +12,10 @@
 | Second-person check | ⬜ To do | Ask a colleague or peer to check 10 numbers in the report against the tables |
 | Units and rounding | ✅ | per 100,000, %, percentage points; rounded to whole numbers in the public report |
 | **C. Statistical validity** | ✅ | CIs shown on all quintile charts; funnel limits adjusted for overdispersion |
-| No over-claiming of change | ✅ | 2019 vs 2025 SII CIs overlap, so the gap is described as "stopped narrowing", not "widened" |
+| No over-claiming of change | ✅ | Segmented trend: flat 2011–2019, post-2019 trend interval includes zero, so the gap is described as "stopped closing around 2011" and "slightly wider since the pandemic", not "widening" |
+| Claims corrected after deeper analysis | ✅ | The earlier wording "narrowed until 2019" was replaced in all outputs once the break-year analysis showed the fall ended around 2011 |
+| Approximate figures | ✅ | Excess deaths (~10,000/yr) are rounded and labelled approximate |
+| Code tested | ✅ | Unit tests of each statistical method against known answers; end-to-end synthetic test (`pytest`) |
 | Age-standardisation | ✅ | Mortality is age-standardised. The undiagnosed estimate is not, and its age effect is explicitly discussed |
 | Small numbers / suppression | ✅ | City of London and Isles of Scilly excluded from mortality; stated |
 | **D. Interpretation** | ✅ | Language says "linked to", not "caused by"; ecological fallacy stated |

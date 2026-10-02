@@ -71,7 +71,11 @@ Manual checks: undiagnosed hypertension values for Barking and Dagenham, Dorset,
 |---|---|
 | Under-75 CVD mortality, most vs least deprived quintile (2025) | 98.7 vs 55.1 per 100,000 (ratio 1.79) |
 | SII 2025 | 51.8 per 100,000 (95% CI 46.2 to 57.5); RII 0.71 |
-| SII 2001 → 2019 → 2025 | 88.0 → 46.1 → 51.8 |
+| SII 2001 → 2011 → 2019 → 2025 | 88.0 → 48.2 → 46.1 → 51.8 |
+| SII trend by period (weighted) | 2001–2011: −3.7/yr (95% CI −4.1 to −3.4); 2011–2019: −0.07/yr (−0.63 to +0.49); 2019–2025: +0.54/yr (−1.23 to +2.31) |
+| SII 2025 by sex | Men 72.0 (64.3–79.7); women 32.1 (27.6–36.7); RII 0.69 vs 0.72 |
+| Excess early CVD deaths (approx.) | ~10,100 in 2025 (28% of under-75 CVD deaths); ~9,900 a year 2023–25 |
+| Deprivation effect explained by smoking + weight | 9% attenuation (15.8 → 14.4 per SD) |
 | Areas above overdispersion-adjusted 99.8% limits | Kingston upon Hull, Blackpool, Salford, Manchester |
 | Smoking, Q1 vs Q5 | 7.9% vs 13.7% (Spearman with IMD ρ = 0.66) |
 | Excess weight, Q1 vs Q5 | 60.6% vs 67.9% (ρ = 0.44) |
@@ -82,7 +86,7 @@ Manual checks: undiagnosed hypertension values for Barking and Dagenham, Dorset,
 | Regression R² (n = 148) | 0.73; deprivation +12.5 per SD (95% CI 10.0 to 15.1); excess weight +5.6 (3.2 to 8.0); smoking +0.1 (−2.5 to 2.7) |
 | Priority areas | 11, of which 9 are in the most deprived quintile |
 
-**Interpreting the trend.** The SII almost halved between 2001 and 2019, then rose in 2020. The 2019 and 2025 confidence intervals overlap (41.6–50.6 vs 46.2–57.5), so the report says the gap has *stopped narrowing*, not that it has significantly widened.
+**Interpreting the trend.** A first reading suggested the gap narrowed until 2019. A data-driven search for the break year in the pre-pandemic trend (minimising weighted squared error of two straight lines, 2005–2015) found **2011**: the SII fell by 3.7 per year from 2001 to 2011, then was flat from 2011 to 2019. Since 2019 the average SII is slightly higher (53.5 vs 49.1), but the post-2019 trend interval includes zero. The report therefore says the gap *stopped closing around 2011* and has been *slightly wider since the pandemic*, not that it is widening. All outputs were corrected after this analysis.
 
 **Interpreting the regression.** Smoking has no independent association with mortality once deprivation is included. This does **not** mean smoking is unimportant. Smoking and deprivation overlap strongly at area level, and the model cannot separate them. The negative coefficient for modelled undiagnosed hypertension most likely reflects age structure (see below), not a protective effect.
 
@@ -97,13 +101,20 @@ Manual checks: undiagnosed hypertension values for Barking and Dagenham, Dorset,
 
 The report presents this as a finding to investigate, not an explanation.
 
-### 8. Sensitivity checks (`outputs/sensitivity.md`)
+### 8. Further analyses (`outputs/deep_dive.md`)
+
+- **By sex.** Absolute inequality (SII) is 2.2 times larger for men, but relative inequality (RII) is similar, because men's rates are higher overall.
+- **Excess deaths.** Deaths above the least-deprived-fifth rate, using each area's age-standardised rate applied to its under-75 population. This is an approximation and is rounded to "around 10,000" in public outputs.
+- **Attenuation.** Adding smoking and excess weight to a deprivation-only model reduces the deprivation coefficient by 9%. This is descriptive, not a causal decomposition: risk factors are survey-based area averages, and blood pressure, diet and access to care are not included.
+
+### 9. Sensitivity checks (`outputs/sensitivity.md`, `outputs/deep_dive.md`)
 
 - **IMD 2025 vs IMD 2019.** Scores correlate at ρ = 0.978; 26 areas change quintile, each by one step only. The mortality ratio is 1.79 vs 1.82. Conclusions are unchanged.
 - **Priority threshold, 20% vs 25%.** All 11 areas remain flagged at 25%, with 5 more added. The core list is stable.
 - **Funnel limits.** With Poisson limits, 35 areas are above; with overdispersion-adjusted limits, 4 are. The report uses the adjusted limits to avoid over-identifying outliers.
+- **Single-year vs 3-year pooled mortality.** 2023–25 pooled: ratio 1.76, SII 51.9; single-year 2025: ratio 1.79, SII 51.8. Conclusions are unchanged.
 
-### 9. Limitations
+### 10. Limitations
 
 - **Ecological fallacy:** area-level associations may not hold for individuals.
 - **No causal inference:** associations may be confounded, most obviously by age and deprivation.
@@ -112,8 +123,9 @@ The report presents this as a finding to investigate, not an explanation.
 - **Geography mismatch:** CVDPREVENT is analysed at national level by quintile, not by local authority.
 - **Unweighted quintile means:** these describe typical areas; large and small authorities count equally.
 - **Funnel approximation:** the Poisson approximation for age-standardised rates is simplified.
+- **Break year:** estimated from few points per segment; reported as "around 2011".
 
-### 10. Reproducibility
+### 11. Reproducibility and automation
 
 ```bash
 pip install -r requirements.txt
@@ -121,7 +133,11 @@ python -m src.split_download data/raw/<fingertips_download>.csv
 python -m src.load_cvdprevent
 python -m src.run_pipeline
 python -m src.sensitivity
+python -m src.deep_dive
+python -m src.export_tableau
 ```
+
+Or run everything at once: `python -m src.refresh` (add `--fetch` to download the latest Fingertips data first). A GitHub Actions workflow runs this monthly, records what changed in `outputs/data_changes.md`, and commits outputs only if QA passes. Tests: `pytest` (unit tests of every statistical method against known answers, plus an end-to-end synthetic run).
 
 All settings are in `config.yaml`. Synthetic test: `python -m src.make_synthetic`, then `python -m src.run_pipeline --raw-dir data/raw_synthetic --out-dir outputs_synthetic`.
 

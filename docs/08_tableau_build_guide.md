@@ -91,7 +91,7 @@ Source: tableau_trend.
 1. Columns: `Year` (continuous). Rows: `Mean rate per 100,000`. Mark: **Line**, colour = `Deprivation quintile label`.
 2. Filter quintile to **1 and 5** (cleaner), or keep all five.
 3. Optional band: add `Lower 95% CI` and `Upper 95% CI` on a dual axis as an **Area** mark with 25% opacity, or simply show them in the tooltip.
-4. Annotate 2019 (Right-click a point > Annotate > Point): "Gap narrowest in 2019".
+4. Annotate 2011 (Right-click a point > Annotate > Point): "Gap stopped closing around here".
 
 **Sheet 3b — SII over time (optional):** Columns `Year`, Rows `Slope index of inequality`, Line; Gantt error bars as in Sheet 2 using SII CIs.
 

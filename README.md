@@ -10,7 +10,10 @@ A reproducible analysis of how cardiovascular risk, detection, treatment and ear
 ## Key findings
 
 - **Early deaths are 1.8 times higher in the most deprived areas.** Under-75 CVD mortality in 2025 was 98.7 per 100,000 in the most deprived fifth of local authorities, vs 55.1 in the least deprived (slope index of inequality 51.8, 95% CI 46.2–57.5).
-- **The gap almost halved from 2001 to 2019, then stopped narrowing.** The SII fell from 88.0 to 46.1, then rose to 54.4 in 2020 and stood at 51.8 in 2025.
+- **The gap narrowed quickly until about 2011, then stopped closing.** The SII fell by 3.7 per 100,000 a year from 2001 to 2011 (88.0 → 48.2), was flat from 2011 to 2019, and has been slightly higher since the pandemic (51.8 in 2025).
+- **Around 10,000 early CVD deaths a year** (28% of the total) would be avoided if every area had the rate of the least deprived fifth.
+- **Men carry most of the absolute gap:** SII 72.0 for men vs 32.1 for women, though relative inequality is similar.
+- **Smoking and weight explain little of it:** adding them reduces the deprivation effect by only 9% at area level.
 - **Four areas stand out after allowing for overdispersion:** Kingston upon Hull, Blackpool, Salford and Manchester.
 - **Blood pressure control is lower in deprived groups.** 71.9% of patients are treated to target in the most deprived quintile vs 75.9% in the least deprived, about **71,000 people**.
 - **Not every gap goes the same way.** Statin use among high-risk patients (QRISK ≥ 20%) is *higher* in the most deprived quintile (70.1% vs 61.8%).
@@ -27,6 +30,8 @@ A reproducible analysis of how cardiovascular risk, detection, treatment and ear
 | Statistics sign-off record | Reviewers | `outputs/report/04_statistics_signoff.md` |
 | QA report | Reviewers | `outputs/qa_report.md` |
 | Sensitivity checks | Reviewers | `outputs/sensitivity.md` |
+| Deeper analyses | Reviewers | `outputs/deep_dive.md` |
+| Data changes since last refresh | Reviewers | `outputs/data_changes.md` |
 | Figures (8) and tables | All | `outputs/figures/`, `outputs/tables/` |
 | Tableau-ready data and build guide | Dashboard | `outputs/tableau/`, `docs/08_tableau_build_guide.md` |
 | Power BI-ready data | Dashboard | `outputs/tables/powerbi_*.csv` |
@@ -42,7 +47,16 @@ All data are published aggregate statistics. No personal data is used.
 
 ## Methods
 
-Deprivation quintiles · quintile means with 95% CIs · population-weighted Slope and Relative Index of Inequality (2001–2025) · funnel plot with Spiegelhalter overdispersion adjustment · Spearman correlation · OLS regression with HC3 robust SEs and VIFs · transparent priority-area rule · sensitivity checks (IMD version, priority threshold) · automated QA. Full details: [technical explainer](outputs/report/02_technical_explainer.md).
+Deprivation quintiles · quintile means with 95% CIs · population-weighted Slope and Relative Index of Inequality (2001–2025, by sex) · data-driven break-year search and segmented trends · funnel plot with Spiegelhalter overdispersion adjustment · excess-deaths estimate · Spearman correlation · OLS regression with HC3 robust SEs, VIFs and attenuation analysis · transparent priority-area rule · sensitivity checks (IMD version, priority threshold, 3-year pooled rates) · automated QA · unit-tested statistics. Full details: [technical explainer](outputs/report/02_technical_explainer.md).
+
+## Automated pipeline
+
+The source data are published monthly to quarterly, so the project refreshes itself on a schedule rather than in real time:
+
+- **`python -m src.refresh --fetch`** downloads the latest Fingertips data, rebuilds every table, figure and Tableau file, and writes `outputs/data_changes.md` (new periods, revised files, stale sources).
+- **Quality gate:** if any QA check FAILS, the run exits with an error and nothing is published.
+- **GitHub Actions:** `.github/workflows/refresh.yml` runs this on the 5th of every month and commits updated outputs; `.github/workflows/tests.yml` runs the test suite on every push.
+- **CVDPREVENT** is refreshed by saving new Data Explorer exports into `data/raw/cvdprevent/` (connecting its API is a planned next step); the refresh flags when that data is more than 9 months old.
 
 ## How to reproduce
 
@@ -52,6 +66,8 @@ pip install -r requirements.txt
 
 python -m src.run_pipeline      # clean -> QA -> analysis -> figures -> tables
 python -m src.sensitivity       # sensitivity checks
+python -m src.deep_dive         # sex, trend breaks, excess deaths, attenuation
+pytest                          # tests (pip install -r requirements-dev.txt)
 python -m src.export_tableau    # Tableau-ready tables
 ```
 
@@ -73,6 +89,10 @@ src/stats.py             statistical methods
 src/figures.py           accessible, consistent charts
 src/run_pipeline.py      runs everything
 src/sensitivity.py       sensitivity and diagnostic checks
+src/deep_dive.py         by sex, break-year trend, excess deaths, attenuation
+src/refresh.py           one-command refresh with change detection and QA gate
+tests/                   unit tests (known-answer) + end-to-end synthetic test
+.github/workflows/       monthly refresh + tests on every push
 src/export_tableau.py    Tableau-ready tables -> outputs/tableau/
 src/make_synthetic.py    synthetic test data with known effects
 docs/                    project plan, templates, sign-off checklist, dashboard guide

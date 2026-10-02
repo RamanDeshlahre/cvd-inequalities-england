@@ -1,16 +1,16 @@
 # Press summary and media lines
 
-## Press summary (160 words)
+## Press summary (about 180 words)
 
 **Progress on closing heart disease gap between rich and poor areas has stalled**
 
 People in England's most deprived areas are almost twice as likely to die early from heart and circulatory disease as those in the least deprived areas, new analysis of official data shows.
 
-The gap between the most and least deprived areas almost halved between 2001 and 2019, but it has not narrowed since.
+The gap between the most and least deprived areas narrowed quickly in the 2000s, but it has not closed since around 2011. Around 10,000 early deaths a year would be avoided if every area had the death rate of the least deprived areas.
 
 The analysis also found that people in the most deprived communities who have high blood pressure are less likely to have it under control. If they did as well as people in the least deprived areas, around 71,000 more people would have their blood pressure at a safe level.
 
-"The gap narrowed for nearly twenty years, which shows it can be done. Getting that progress moving again starts with finding and treating high blood pressure earlier."
+"The gap narrowed quickly in the 2000s, which shows it can be done. Getting that progress moving again starts with finding and treating high blood pressure earlier."
 
 The findings describe areas, not individuals, and show links rather than causes. Full report, methods and code: [link].
 
@@ -22,7 +22,7 @@ The findings describe areas, not individuals, and show links rather than causes.
 
 "Where you live in England still makes a big difference to your chances of dying early from heart and circulatory disease. In the most deprived areas, early deaths are almost twice as common as in the most affluent areas.
 
-The encouraging part is that this gap almost halved between 2001 and 2019. The worrying part is that since then, progress has stalled.
+The encouraging part is that this gap shrank a lot in the 2000s. The worrying part is that it has barely moved since about 2011.
 
 One thing that could help is blood pressure. High blood pressure usually has no symptoms, so millions of people don't know they have it. And even when it is diagnosed, people in poorer areas are less likely to have it under control.
 
@@ -36,7 +36,7 @@ The good news is that it's easy to check and can be treated. So my message is si
 No. We found a strong link between deprivation and early deaths, but area data can't separate causes. Deprivation goes together with smoking, diet, stress, and access to care. What the data does show is where the need is greatest.
 
 **"Why has the gap stopped closing?"**
-Our analysis can't say for certain. The change coincides with the COVID-19 pandemic, which hit deprived areas hardest, and with pressure on NHS services. Understanding it better is an important next step.
+Our analysis can't say for certain. The stall began around 2011, well before the pandemic, so COVID alone doesn't explain it, though the pandemic did widen the gap slightly. Understanding why progress stopped is an important next step.
 
 **"Which area is worst?"**
 Four areas stand out even after allowing for normal variation between places: Hull, Blackpool, Salford and Manchester. But rankings between most areas are uncertain, so we'd caution against reading too much into league tables.

@@ -125,14 +125,17 @@ def main() -> None:
 
     # CVDPREVENT-style national table (quintile 1 = MOST deprived, as configured).
     care = []
-    for ind, base, eff in [("Hypertension treated to target (aged under 80)", 66, -2.2),
-                           ("On lipid-lowering therapy (QRISK 20%+)", 62, -1.8),
-                           ("Atrial fibrillation on anticoagulation", 91, -0.9)]:
+    for code, ind, base, eff in [("CVDP007HYP", "Hypertension treated to target", 74, -1.0),
+                                 ("CVDP003CHOL", "QRISK 20%+ on statins", 65, 2.0),
+                                 ("CVDP002AF", "AF on anticoagulants", 92, -0.2),
+                                 ("CVDP005HYP", "One high BP, no diagnosis", 2.0, 0.07)]:
         for q in range(1, 6):
-            v = base + eff * (3 - q) + rng.normal(0, 0.3)   # q=1 most deprived -> lowest
-            care.append({"indicator": ind, "period": "To March 2025", "quintile": q,
-                         "value": round(v, 1), "lower_ci": round(v - 0.3, 1),
-                         "upper_ci": round(v + 0.3, 1)})
+            v = base + eff * (3 - q) + rng.normal(0, 0.1)   # q=1 most deprived
+            denom = 1_800_000
+            care.append({"indicator_code": code, "indicator": ind, "period": "To March 2026",
+                         "quintile": q, "numerator": round(v / 100 * denom), "denominator": denom,
+                         "value": round(v, 2), "lower_ci": round(v - 0.1, 2),
+                         "upper_ci": round(v + 0.1, 2)})
     pd.DataFrame(care).to_csv(OUT / cfg["cvdprevent"]["file"], index=False)
     print(f"Synthetic data written to {OUT}")
 

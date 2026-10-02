@@ -8,14 +8,15 @@
 ### Key points
 
 - People living in England's most deprived areas are **almost twice as likely** to die from heart and circulatory disease before the age of 75 as people in the least deprived areas.
-- Between 2001 and 2019, this gap **almost halved**. Since 2019, it has **stopped closing**.
+- This gap **narrowed quickly in the 2000s**, but it has **not closed since around 2011**, and it has been slightly wider since the pandemic.
+- Around **10,000 early deaths a year** would not happen if every area had the death rate of the least deprived areas.
 - In the most deprived fifth of the population, people with diagnosed high blood pressure are less likely to have it under control. If they did as well as the least deprived fifth, around **71,000 more people** would have their blood pressure at a safe level.
 - Some prevention is reaching deprived communities: people at high risk of a heart attack or stroke are **more likely** to be on cholesterol-lowering medicine in the most deprived areas than in the least deprived.
 - **Eleven areas**, nine of them among the most deprived in England, combine high rates of smoking and excess weight with high early death rates. These may be where prevention could make the biggest difference.
 
 ---
 
-### 1. Early deaths: a gap that has stopped closing
+### 1. Early deaths: a gap that stopped closing a decade ago
 
 In 2025, about 72 in every 100,000 people under 75 in England died from heart and circulatory disease. But this average hides big differences.
 
@@ -23,11 +24,19 @@ In the least deprived fifth of local areas, the rate was 55 per 100,000. In the 
 
 ![Early deaths by deprivation](../figures/01_mortality_by_quintile.png)
 
-There is good news in the long run. Since 2001, early death rates have fallen sharply everywhere, and the gap between the most and least deprived areas almost halved by 2019. But after 2019, death rates rose again during and after the COVID-19 pandemic, especially in the most deprived areas. By 2025, rates had started to fall again, but the gap was still no smaller than it was in 2019.
+There is good news in the long run. Since 2001, early death rates have fallen sharply everywhere. The gap between the most and least deprived areas also narrowed quickly, shrinking by almost half between 2001 and 2011.
+
+But since around 2011, the gap has stopped closing. Death rates then rose during and after the COVID-19 pandemic, especially in the most deprived areas. By 2025, rates had started to fall again, but the gap was slightly wider than before the pandemic.
 
 ![Trend in the gap](../figures/03_mortality_trend_gap.png)
 
 *The shaded bands show the range in which the true value is likely to lie.*
+
+![When the gap stopped closing](../figures/10_sii_segmented_trend.png)
+
+**Men are hit hardest.** In the most deprived areas, about 139 in every 100,000 men under 75 died from heart and circulatory disease in 2025, compared with 78 in the least deprived areas. For women, the figures were 61 and 35. In both cases, the rate is around 1.8 times higher in the most deprived areas, but because men's rates are higher, the gap in actual deaths is more than twice as large.
+
+**What the gap costs.** If every area had the early death rate of the least deprived fifth, around **10,000 fewer people** would die early from heart and circulatory disease each year. That is more than 1 in 4 of all early deaths from these conditions.
 
 ### 2. Which areas stand out?
 
@@ -44,6 +53,8 @@ Smoking is one of the biggest causes of heart and circulatory disease. In the mo
 Excess weight is common everywhere. Around 6 in 10 adults are overweight or obese even in the least deprived areas, rising to nearly 7 in 10 in the most deprived.
 
 ![Smoking by deprivation](../figures/06a_smoking_by_quintile.png)
+
+Smoking and weight matter, but they are not the whole story. Across local areas, differences in smoking and weight explain only around a tenth of the link between deprivation and early deaths. Other factors, such as blood pressure, diet, stress, housing and access to care, are likely to play a part.
 
 ### 4. High blood pressure: hidden and uncontrolled
 
@@ -76,7 +87,7 @@ Nine of the eleven are in the most deprived fifth of areas in England. In these 
 
 ### What this means
 
-Where you live should not decide how long you live. The progress made between 2001 and 2019 shows that the gap can be narrowed. Restarting that progress means focusing prevention where risk is highest, and making sure that everyone with high blood pressure is diagnosed and treated well.
+Where you live should not decide how long you live. The progress made in the 2000s shows that the gap can be narrowed. Restarting that progress means focusing prevention where risk is highest, and making sure that everyone with high blood pressure is diagnosed and treated well.
 
 **If you are over 40, know your numbers.** Get your blood pressure checked at your GP, a pharmacy or through an NHS Health Check.
 

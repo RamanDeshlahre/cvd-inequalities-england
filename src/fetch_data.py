@@ -65,13 +65,13 @@ def fetch_indicator(base: str, indicator_id: int, area_type_id: int,
     return pd.read_csv(io.StringIO(r.text), low_memory=False)
 
 
-def main() -> None:
+def main(argv: list[str] | None = None) -> dict:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--list-area-types", action="store_true")
     ap.add_argument("--check-ids", action="store_true",
                     help="download, print indicator names, but do not save")
-    args = ap.parse_args()
+    args = ap.parse_args(argv)
 
     cfg = load_config()
     ft = cfg["fingertips"]
@@ -87,7 +87,9 @@ def main() -> None:
     for key in missing:
         log.warning("'%s' has no id in config.yaml - skipped.", key)
 
-    for key, spec in active_indicators(cfg).items():
+    targets = dict(active_indicators(cfg))
+    targets.update({k: {"id": v} for k, v in cfg.get("sensitivity_indicators", {}).items()})
+    for key, spec in targets.items():
         log.info("Fetching %s (id %s)...", key, spec["id"])
         df = fetch_indicator(ft["base_url"], spec["id"], ft["area_type_id"],
                              ft["parent_area_type_id"])
@@ -110,6 +112,7 @@ def main() -> None:
         with open(p["raw"] / "manifest.json", "w", encoding="utf-8") as f:
             json.dump(manifest, f, indent=2)
         log.info("Saved raw files and manifest.json to %s", p["raw"])
+    return manifest
 
 
 if __name__ == "__main__":

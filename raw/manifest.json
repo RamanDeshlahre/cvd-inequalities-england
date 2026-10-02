@@ -1,0 +1,61 @@
+{
+  "source_file": "Fingertips API combined download (indicator-data.csv) + IMD 2025 (94240) separate download",
+  "split_utc": "2026-10-02T10:59:55.368282+00:00",
+  "rows_total": 52006,
+  "indicators": {
+    "under75_cvd_mortality": {
+      "id": 40401,
+      "fingertips_name": "Under 75 mortality rate from cardiovascular disease",
+      "rows": 26040,
+      "file": "under75_cvd_mortality.csv"
+    },
+    "hypertension_undiagnosed": {
+      "id": 94111,
+      "fingertips_name": "Estimated prevalence of undiagnosed adult hypertension",
+      "rows": 155,
+      "file": "hypertension_undiagnosed.csv"
+    },
+    "hypertension_recorded": {
+      "id": 219,
+      "fingertips_name": "Hypertension: QOF prevalence",
+      "rows": 3321,
+      "file": "hypertension_recorded.csv"
+    },
+    "smoking": {
+      "id": 92443,
+      "fingertips_name": "Smoking Prevalence in adults (aged 18 and over) - current smokers (APS)",
+      "rows": 19865,
+      "file": "smoking.csv"
+    },
+    "excess_weight": {
+      "id": 93088,
+      "fingertips_name": "Overweight (including obesity) prevalence in adults, (using adjusted self-reported height and weight)",
+      "rows": 2470,
+      "file": "excess_weight.csv"
+    },
+    "deprivation": {
+      "id": 94240,
+      "fingertips_name": "Deprivation score (IMD 2025)",
+      "file": "deprivation.csv"
+    },
+    "deprivation_imd2019": {
+      "id": 93553,
+      "fingertips_name": "Deprivation score (IMD 2019)",
+      "file": "deprivation_imd2019.csv",
+      "use": "sensitivity check"
+    }
+  },
+  "download_url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=40401,219,92443,93088,93553,94111&child_area_type_id=502&parent_area_type_id=15",
+  "download_url_imd2025": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=94240&child_area_type_id=502&parent_area_type_id=15",
+  "downloaded": "2026-10-02",
+  "cvdprevent": {
+    "source": "CVDPREVENT Data Explorer exports, England, To March 2026",
+    "files": [
+      "CVDP002AF.xlsx",
+      "CVDP003CHOL.xlsx",
+      "CVDP005HYP.xlsx",
+      "CVDP007HYP.xlsx"
+    ],
+    "downloaded": "2026-10-02"
+  }
+}

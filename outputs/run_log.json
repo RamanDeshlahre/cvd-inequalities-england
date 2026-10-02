@@ -1,0 +1,30 @@
+{
+  "started_utc": "2026-10-02T14:11:06.305438+00:00",
+  "finished_utc": "2026-10-02T14:11:10.364326+00:00",
+  "fetched": false,
+  "qa_fail": 0,
+  "qa_warn": 4,
+  "latest_periods": {
+    "deprivation": "2025",
+    "excess_weight": "2024/25",
+    "hypertension_recorded": "2024/25",
+    "hypertension_undiagnosed": "2021",
+    "smoking": "2024",
+    "under75_cvd_mortality": "2025",
+    "cvdprevent": "To March 2026"
+  },
+  "fingerprints": {
+    "cvdprevent/CVDP002AF.xlsx": "2e9101988f9dd24b",
+    "cvdprevent/CVDP003CHOL.xlsx": "76768b7ef3f240a8",
+    "cvdprevent/CVDP005HYP.xlsx": "fc8fda67feb6e7de",
+    "cvdprevent/CVDP007HYP.xlsx": "217af3e38012c798",
+    "cvdprevent_by_deprivation.csv": "57b9a06193657820",
+    "deprivation.csv": "57163841517bf539",
+    "deprivation_imd2019.csv": "5fb3cc898535c4e2",
+    "excess_weight.csv": "5e5daea9d211577a",
+    "hypertension_recorded.csv": "1c65a6ad0300a036",
+    "hypertension_undiagnosed.csv": "ea86db4d2dc514bd",
+    "smoking.csv": "0b7b6abe046c87b2",
+    "under75_cvd_mortality.csv": "40232b961fb2965f"
+  }
+}

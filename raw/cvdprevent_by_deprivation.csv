@@ -1,0 +1,21 @@
+indicator_code,indicator,period,quintile,numerator,denominator,value,lower_ci,upper_ci
+CVDP002AF,AF: Treated with anticoagulants,To March 2026,1,155937,169960,91.75,91.62,91.88
+CVDP002AF,AF: Treated with anticoagulants,To March 2026,2,185312,201905,91.78,91.66,91.9
+CVDP002AF,AF: Treated with anticoagulants,To March 2026,3,224036,243502,92.01,91.9,92.11
+CVDP002AF,AF: Treated with anticoagulants,To March 2026,4,244322,264833,92.26,92.15,92.36
+CVDP002AF,AF: Treated with anticoagulants,To March 2026,5,249406,270233,92.29,92.19,92.39
+CVDP003CHOL,Cholesterol: QRISK >= 20% treated with LLT,To March 2026,1,416557,594216,70.1,69.99,70.22
+CVDP003CHOL,Cholesterol: QRISK >= 20% treated with LLT,To March 2026,2,418268,628484,66.55,66.44,66.67
+CVDP003CHOL,Cholesterol: QRISK >= 20% treated with LLT,To March 2026,3,433491,677164,64.02,63.9,64.13
+CVDP003CHOL,Cholesterol: QRISK >= 20% treated with LLT,To March 2026,4,434494,690966,62.88,62.77,63.0
+CVDP003CHOL,Cholesterol: QRISK >= 20% treated with LLT,To March 2026,5,413117,668226,61.82,61.71,61.94
+CVDP005HYP,Hypertension: High risk – one high BP with no recorded hypertension,To March 2026,1,211564,9844678,2.15,2.14,2.16
+CVDP005HYP,Hypertension: High risk – one high BP with no recorded hypertension,To March 2026,2,193415,9917687,1.95,1.94,1.96
+CVDP005HYP,Hypertension: High risk – one high BP with no recorded hypertension,To March 2026,3,189200,9546093,1.98,1.97,1.99
+CVDP005HYP,Hypertension: High risk – one high BP with no recorded hypertension,To March 2026,4,182220,9172991,1.99,1.98,2.0
+CVDP005HYP,Hypertension: High risk – one high BP with no recorded hypertension,To March 2026,5,165858,9005920,1.84,1.83,1.85
+CVDP007HYP,Hypertension: Treated to appropriate threshold (all ages),To March 2026,1,1283637,1786364,71.86,71.79,71.92
+CVDP007HYP,Hypertension: Treated to appropriate threshold (all ages),To March 2026,2,1372594,1874129,73.24,73.18,73.3
+CVDP007HYP,Hypertension: Treated to appropriate threshold (all ages),To March 2026,3,1445095,1951616,74.05,73.98,74.11
+CVDP007HYP,Hypertension: Treated to appropriate threshold (all ages),To March 2026,4,1475862,1970062,74.91,74.85,74.97
+CVDP007HYP,Hypertension: Treated to appropriate threshold (all ages),To March 2026,5,1427932,1882388,75.86,75.8,75.92
