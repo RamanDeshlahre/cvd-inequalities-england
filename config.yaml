@@ -1,0 +1,126 @@
+# =====================================================================
+# Cardiovascular Inequalities and Prevention Priorities in England
+# How risk, care and early deaths differ by deprivation
+# ---------------------------------------------------------------------
+# Every setting the analysis depends on lives here, so the pipeline is
+# reproducible and a colleague can re-run it without reading the code.
+# =====================================================================
+
+author: "Raman D."           # appears in every chart source line
+
+fingertips:
+  base_url: "https://fingertips.phe.org.uk/api"
+  # Upper-tier local authorities (counties and unitary authorities).
+  # Area type IDs change when boundaries change. VERIFY before running:
+  #   python -m src.fetch_data --list-area-types
+  area_type_id: 502
+  parent_area_type_id: 15        # 15 = England
+
+# Area-code prefixes for upper-tier local authorities in England:
+# E06 unitary, E08 metropolitan district, E09 London borough, E10 county.
+upper_tier_prefixes: ["E06", "E08", "E09", "E10"]
+england_code: "E92000001"
+
+# ---------------------------------------------------------------------
+# Indicators. Step 1 of the plan: check EVERY id on the Fingertips website
+# and confirm the indicator name the fetch script prints back matches.
+# 'role' controls how the pipeline uses each indicator - do not rename roles.
+# 'sex' / 'age' pick one breakdown when Fingertips publishes several.
+# ---------------------------------------------------------------------
+indicators:
+  under75_cvd_mortality:
+    id: 40401                    # verified 2 Oct 2026
+    role: outcome
+    label: "Under-75 CVD mortality rate (per 100,000, age-standardised)"
+    unit: "per 100,000"
+    sex: "Persons"
+    age: "<75 yrs"
+    period_range: "1y"           # single years (3y pooled rows share the same sortable period)
+    higher_is_worse: true
+
+  hypertension_undiagnosed:
+    id: 94111                    # verified 2 Oct 2026
+    role: risk_undiagnosed
+    label: "Estimated prevalence of undiagnosed adult hypertension"
+    unit: "%"
+    sex: "Persons"
+    age: "16+ yrs"
+    period_range: "1y"
+    higher_is_worse: true
+
+  hypertension_recorded:
+    id: 219                      # verified 2 Oct 2026 - context only
+    role: context
+    label: "Hypertension: recorded prevalence (QOF, all ages)"
+    unit: "%"
+    sex: "Persons"
+    age: "All ages"
+    period_range: "1y"
+    higher_is_worse: false
+
+  smoking:
+    id: 92443                    # verified 2 Oct 2026
+    role: risk_factor
+    label: "Smoking prevalence in adults (18+)"
+    unit: "%"
+    sex: "Persons"
+    age: "18+ yrs"
+    period_range: "1y"
+    higher_is_worse: true
+
+  excess_weight:
+    id: 93088                    # verified 2 Oct 2026
+    role: risk_factor
+    label: "Adults overweight or obese (18+)"
+    unit: "%"
+    sex: "Persons"
+    age: "18+ yrs"
+    period_range: "1y"
+    higher_is_worse: true
+
+  deprivation:
+    id: 94240                    # verified 2 Oct 2026 - IMD 2025 (IMD 2019 = 93553, kept for sensitivity check)
+    role: deprivation
+    label: "Deprivation score (IMD 2025)"
+    unit: "score"
+    sex: "Persons"
+    age: "All ages"
+    period_range: "1y"
+    higher_is_worse: true
+
+# ---------------------------------------------------------------------
+# CVDPREVENT (care section). Downloaded manually - see docs/project_plan.md.
+# Save as data/raw/cvdprevent_by_deprivation.csv with these columns:
+#   indicator, period, quintile, value, lower_ci, upper_ci
+# ---------------------------------------------------------------------
+cvdprevent:
+  file: "cvdprevent_by_deprivation.csv"
+  quintile_1_is_most_deprived: true   # confirmed in exports ("1 - most deprived")
+  # Detection measures (higher = worse) are charted separately from care measures.
+  detection_codes: ["CVDP005HYP"]
+  short_names:
+    CVDP007HYP: "High blood pressure treated to target"
+    CVDP003CHOL: "High risk (QRISK 20%+) on statins"
+    CVDP002AF: "Atrial fibrillation on anticoagulants"
+
+analysis:
+  n_quintiles: 5                 # 1 = least deprived ... 5 = most deprived
+  funnel_limits: [0.95, 0.998]   # two-sided coverage of control limits
+  trend_min_areas: 100           # skip trend years with fewer areas than this
+  priority_top_share: 0.2        # 'worst fifth' threshold for priority flags
+  priority_min_domains: 2        # flagged in at least this many of 3 domains
+
+# ---------------------------------------------------------------------
+# Chart titles state the finding. Written AFTER reviewing results on
+# real data (2 Oct 2026). If you re-run with new data, re-check every one.
+# ---------------------------------------------------------------------
+chart_titles:
+  mortality_quintile: "Early heart and circulatory deaths are 1.8 times higher in the most deprived areas"
+  funnel: "Four areas have early death rates well above England, even allowing for normal variation"
+  trend: "The gap in early heart deaths almost halved from 2001 to 2019, then stopped narrowing"
+  undiagnosed_quintile: "Modelled undiagnosed high blood pressure is slightly lower in deprived areas"
+  undiagnosed_vs_mortality: "More modelled undiagnosed high blood pressure does not mean more early deaths"
+  smoking: "Smoking is 1.7 times more common in the most deprived areas"
+  excess_weight: "Most adults carry excess weight everywhere, but more so in deprived areas"
+  care: "Blood pressure control is lower in deprived groups, but statin use is higher"
+  detection: "Unconfirmed high blood pressure readings are most common in the most deprived fifth"

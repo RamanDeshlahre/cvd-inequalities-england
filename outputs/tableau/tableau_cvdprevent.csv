@@ -1,0 +1,21 @@
+Indicator code,Period,Deprivation quintile,Numerator,Denominator,Percent,Lower 95% CI,Upper 95% CI,Measure,Measure type,Deprivation quintile label
+CVDP002AF,To March 2026,5,155937,169960,91.75,91.62,91.88,Atrial fibrillation on anticoagulants,Treatment,5 - Most deprived
+CVDP002AF,To March 2026,4,185312,201905,91.78,91.66,91.9,Atrial fibrillation on anticoagulants,Treatment,4
+CVDP002AF,To March 2026,3,224036,243502,92.01,91.9,92.11,Atrial fibrillation on anticoagulants,Treatment,3
+CVDP002AF,To March 2026,2,244322,264833,92.26,92.15,92.36,Atrial fibrillation on anticoagulants,Treatment,2
+CVDP002AF,To March 2026,1,249406,270233,92.29,92.19,92.39,Atrial fibrillation on anticoagulants,Treatment,1 - Least deprived
+CVDP003CHOL,To March 2026,5,416557,594216,70.1,69.99,70.22,High risk (QRISK 20%+) on statins,Treatment,5 - Most deprived
+CVDP003CHOL,To March 2026,4,418268,628484,66.55,66.44,66.67,High risk (QRISK 20%+) on statins,Treatment,4
+CVDP003CHOL,To March 2026,3,433491,677164,64.02,63.9,64.13,High risk (QRISK 20%+) on statins,Treatment,3
+CVDP003CHOL,To March 2026,2,434494,690966,62.88,62.77,63.0,High risk (QRISK 20%+) on statins,Treatment,2
+CVDP003CHOL,To March 2026,1,413117,668226,61.82,61.71,61.94,High risk (QRISK 20%+) on statins,Treatment,1 - Least deprived
+CVDP005HYP,To March 2026,5,211564,9844678,2.15,2.14,2.16,Hypertension: High risk – one high BP with no recorded hypertension,Detection,5 - Most deprived
+CVDP005HYP,To March 2026,4,193415,9917687,1.95,1.94,1.96,Hypertension: High risk – one high BP with no recorded hypertension,Detection,4
+CVDP005HYP,To March 2026,3,189200,9546093,1.98,1.97,1.99,Hypertension: High risk – one high BP with no recorded hypertension,Detection,3
+CVDP005HYP,To March 2026,2,182220,9172991,1.99,1.98,2.0,Hypertension: High risk – one high BP with no recorded hypertension,Detection,2
+CVDP005HYP,To March 2026,1,165858,9005920,1.84,1.83,1.85,Hypertension: High risk – one high BP with no recorded hypertension,Detection,1 - Least deprived
+CVDP007HYP,To March 2026,5,1283637,1786364,71.86,71.79,71.92,High blood pressure treated to target,Treatment,5 - Most deprived
+CVDP007HYP,To March 2026,4,1372594,1874129,73.24,73.18,73.3,High blood pressure treated to target,Treatment,4
+CVDP007HYP,To March 2026,3,1445095,1951616,74.05,73.98,74.11,High blood pressure treated to target,Treatment,3
+CVDP007HYP,To March 2026,2,1475862,1970062,74.91,74.85,74.97,High blood pressure treated to target,Treatment,2
+CVDP007HYP,To March 2026,1,1427932,1882388,75.86,75.8,75.92,High blood pressure treated to target,Treatment,1 - Least deprived

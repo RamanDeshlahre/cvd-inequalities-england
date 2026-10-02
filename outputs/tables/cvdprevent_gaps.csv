@@ -1,0 +1,5 @@
+indicator_code,indicator,least_deprived_pct,most_deprived_pct,gap_pp,people_difference_if_matched,most_deprived_denominator
+CVDP002AF,AF: Treated with anticoagulants,92.29,91.75,-0.54,918,169960
+CVDP003CHOL,Cholesterol: QRISK >= 20% treated with LLT,61.82,70.1,8.28,-49201,594216
+CVDP005HYP,Hypertension: High risk – one high BP with no recorded hypertension,1.84,2.15,0.31,-30519,9844678
+CVDP007HYP,Hypertension: Treated to appropriate threshold (all ages),75.86,71.86,-4.0,71455,1786364

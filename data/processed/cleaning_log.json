@@ -1,0 +1,47 @@
+{
+  "under75_cvd_mortality": {
+    "raw_rows": 26040,
+    "after_drop_category_breakdowns": 22320,
+    "after_sex_filter": 7440,
+    "after_age_filter": 7440,
+    "after_period_range_filter": 3875
+  },
+  "hypertension_undiagnosed": {
+    "raw_rows": 155,
+    "after_drop_category_breakdowns": 155,
+    "after_sex_filter": 155,
+    "after_age_filter": 155,
+    "after_period_range_filter": 155
+  },
+  "hypertension_recorded": {
+    "raw_rows": 3321,
+    "after_drop_category_breakdowns": 2021,
+    "after_sex_filter": 2021,
+    "after_age_filter": 2021,
+    "after_period_range_filter": 2021
+  },
+  "smoking": {
+    "raw_rows": 19865,
+    "after_drop_category_breakdowns": 9943,
+    "after_sex_filter": 4485,
+    "after_age_filter": 2728,
+    "after_period_range_filter": 2112
+  },
+  "excess_weight": {
+    "raw_rows": 2470,
+    "after_drop_category_breakdowns": 1750,
+    "after_sex_filter": 1710,
+    "after_age_filter": 1550,
+    "after_period_range_filter": 1550
+  },
+  "deprivation": {
+    "raw_rows": 155,
+    "after_drop_category_breakdowns": 155,
+    "after_sex_filter": 155,
+    "after_age_filter": 155,
+    "after_period_range_filter": 155
+  },
+  "upper_tier_rows_all_indicators": 9734,
+  "areas_in_latest_table": 153,
+  "areas_without_deprivation": []
+}
